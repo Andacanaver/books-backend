@@ -2,7 +2,7 @@ TRUNCATE
     characters
     RESTART IDENTITY CASCADE;
 
-INSERT INTO characters (character_name, bookContentId, char_description)
+INSERT INTO characters (character_name, book_content_id, char_description)
 VALUES
     ('Book Main Character', 1, 'Irure quis cupidatat Lorem elit magna mollit magna aliqua culpa.'),
     ('Book two Main Character', 2, 'Irure quis cupidatat Lorem elit magna mollit magna aliqua culpa.'),

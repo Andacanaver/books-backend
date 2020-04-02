@@ -5,6 +5,11 @@ const cors = require("cors");
 const helmet = require("helmet");
 const { NODE_ENV } = require('./config')
 
+//Routers 
+const booksRouter = require('./books/books-router')
+const contentRouter = require('./content/content-router')
+const characterRouter = require('./characters/character-router')
+
 const app = express();
 
 const morganOption = (NODE_ENV === 'production') ? 'tiny' : 'common';
@@ -17,6 +22,9 @@ app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
+app.use('/api/books', booksRouter)
+app.use('/api/content', contentRouter)
+app.use('/api/characters', characterRouter)
 app.use(function errorHandler(error, req, res, next) {
     let response
     if (NODE_ENV === 'production') {

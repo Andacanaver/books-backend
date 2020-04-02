@@ -17,6 +17,22 @@ const BooksService = {
             .then(rows => {
                 return rows[0];
             });
+    },
+    updateBook(knex, id, newBookFields) {
+        return knex('books')
+            .where({ id })
+            .update(newBookFields)
+    },
+    deleteBook(knex, id) {
+        return knex('books')
+            .where({ id })
+            .delete()
+    },
+    getContentForBook(knex, bookId) {
+        return knex
+            .select('*')
+            .from('book_content')
+            .where('book_id', bookId)
     }
 }
 
